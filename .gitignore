@@ -3,4 +3,6 @@
 app
 tmp
 .DB/*
+!.DB/.gitkeep
 .S3/*
+!.S3/.gitkeep

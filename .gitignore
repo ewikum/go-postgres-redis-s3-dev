@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+app
+tmp
+.DB/*
+.S3/*

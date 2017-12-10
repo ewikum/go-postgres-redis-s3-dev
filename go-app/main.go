@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+
 	"net/http"
 )
 
 func main() {
 	
+
 	http.Handle("/", indexHandler{})
 	http.Handle("/redis/", redisHandler{})
 	http.Handle("/s3/", s3Handler{})

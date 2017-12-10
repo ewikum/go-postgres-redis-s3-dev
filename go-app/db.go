@@ -26,14 +26,17 @@ func (h dbHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	addnew:=strings.TrimPrefix(r.URL.Path, "/db/add/")
-	if addnew!="" {
-		insertOne(addnew)	
-		fmt.Fprintf(w, "New item inserted. \n\n")
-	}else {
-		fmt.Fprintf(w, "Access /db/add/{some text} to insert new item. \n\n")
-	}
 
+	if strings.HasPrefix(r.URL.Path, "/db/add/") {
+		addnew:=strings.TrimPrefix(r.URL.Path, "/db/add/")
+		if addnew!="" {
+			insertOne(addnew)	
+			fmt.Fprintf(w, "New item inserted. \n\n")
+		}
+	}
+	
+	fmt.Fprintf(w, "Access /db/add/{some text} to insert new item. \n\n")
+	
 	fmt.Fprintf(w, "Items from dummy table...\n\n")
 
 	items:=listitems()
@@ -45,11 +48,11 @@ func (h dbHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func initDB() error {
 	connInfo := fmt.Sprintf(
 		"user=%s dbname=%s password=%s host=%s port=%s sslmode=disable",
-		os.Getenv("DB_ENV_POSTGRES_USER"),
-		os.Getenv("DB_ENV_POSTGRES_DBNAME"),
-		os.Getenv("DB_ENV_POSTGRES_PASSWORD"),
-		os.Getenv("DB_PORT_5432_TCP_ADDR"),
-		os.Getenv("DB_PORT_5432_TCP_PORT"),
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_DBNAME"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_PORT"),
 	)
 
 	var err error

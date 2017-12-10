@@ -20,8 +20,8 @@ func (h redisHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func redisConnect() redis.Conn {
 	c, err := redis.Dial("tcp", fmt.Sprintf("%s:%s",
-		os.Getenv("REDIS_PORT_6379_TCP_ADDR"),
-		os.Getenv("REDIS_PORT_6379_TCP_PORT"),
+		os.Getenv("REDIS_HOST"),
+		os.Getenv("REDIS_PORT"),
 	))
 	if err != nil {
 		log.Fatal(err)

@@ -90,7 +90,7 @@ docker-compose run go go test ./...
 
 * 1 Go container : go-cont
 * 1 Minio container : s3-cont
-* 1 Postgres container : postgres-cont
+* 1 Postgres container : db-cont
 * 1 Redis container : redis-cont
 
 ## Usefull commands
@@ -171,6 +171,4 @@ Read [official minio guide](https://docs.minio.io/docs/golang-client-quickstart-
 ) to leran more. 
 
 
-
-###Happy coding...!
-
+### Happy coding...!

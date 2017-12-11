@@ -162,7 +162,7 @@ This file inclues a sample code to undestand how to deal with minio object stora
 This file is responsible for the followings. 
 
 * `http://localhost:8080/s3/`: lists all the objects in a bucket called testbucket.
-* `http://localhost:8080/s3/put/`: uploads the `s3_upload_test_file.txt` to the testbucket.
+* `http://localhost:8080/s3/triggeraput/`: uploads the `s3_upload_test_file.txt` to the testbucket.
 
 If we check the `.S3` directory, We can see our objects are placed inside.
 Additionally we can access the minio service from the mino container directly via `http://localhost:9000`

@@ -27,7 +27,7 @@ func (h s3Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	s3 := newClient(endpoint, accessKeyID, secretAccessKey, false)
 	jp,_ := time.LoadLocation("Asia/Tokyo")
 
-	if strings.TrimPrefix(r.URL.Path, "/s3/")=="put" {
+	if strings.TrimPrefix(r.URL.Path, "/s3/")=="triggeraput" {
 		s3.makeBucket("testbucket","us-east-1")
 		s3.putFile("testbucket","s3_upload_test_file_"+ time.Now().In(jp).Format("2006-01-02 15:04:05")+".txt","s3_upload_test_file.txt","text/plain")	
 		fmt.Fprintf(w, "New object added. \n\n")

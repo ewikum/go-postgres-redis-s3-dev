@@ -32,7 +32,7 @@ func (h s3Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		s3.putFile("testbucket","s3_upload_test_file_"+ time.Now().In(jp).Format("2006-01-02 15:04:05")+".txt","s3_upload_test_file.txt","text/plain")	
 		fmt.Fprintf(w, "New object added. \n\n")
 	}else {
-		fmt.Fprintf(w, "Access /s3/put to add s3_upload_test_file.txt as a new object. \n\n")
+		fmt.Fprintf(w, "Access /s3/triggeraput to add s3_upload_test_file.txt as a new object. \n\n")
 	}
 
 	fmt.Fprintf(w, "Objects2 in the testbucket...\nBrowse buckets on http://localhost:9000\n\n")
